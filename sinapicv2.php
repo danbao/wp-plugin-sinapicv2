@@ -5,7 +5,7 @@ Plugin URI: http://inn-studio.com/sinapicv2
 Description: Best Image Hosting Plugin for WP. Upload your picture to sina weibo and show it on your site.
 Author: INN STUDIO
 Author URI: http://inn-studio.com
-Version: 1.6.1
+Version: 1.6.2
 Text Domain:sinapicv2
 Domain Path:/languages
 */
