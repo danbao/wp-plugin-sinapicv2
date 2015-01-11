@@ -1,182 +1,250 @@
+.after-icon{
+	margin-left:.5em;
+}
+#sinapicv2-container .button-primary{
+	text-shadow:0 1px 2px rgba(0,0,0,.5);
+}
+#sinapicv2-progress{
+	margin-bottom:10px;
+	position:relative;
+}
+	#sinapicv2-progress-tx{
+	}
+		#sinapicv2-progress-tx .dashicons{
+		}
+		#sinapicv2-progress-tx .tip-status{
+			padding:30px 20px;
+			
+		}
+	#sinapicv2-progress-bar{
+		position:absolute;
+		left:0;
+		bottom:0px;
+		height:5px;
+		width:0;
+		background:rgb(0, 116, 162);
+		border-radius:10px;
+	}
+
+
 #sinapicv2 .inside{
 	padding-bottom:0;
 }
-#tpl{
+#sinapicv2-tpl-container{
 	max-height:610px;
 	overflow-y:auto;
 	display:none;
 }
-#tpl .sizes_label{
-	margin-right:1em;
+#sinapicv2-container .size-group{
+	margin-bottom:10px;
+	overflow:hidden;
 }
-#tpl .img_preview{
-	width:25px;
-	height:25px;
+
+	#sinapicv2-tpl-container .sizes-label{
+		padding:0 .5em;
+		border-radius:2px;
+		float:left;
+	}
+		#sinapicv2-tpl-container .sizes-label:hover{
+			background:#eee;
+		}
+		#sinapicv2-tpl-container .size-input:checked + span{
+			font-weight:bold;
+		}
+#sinapicv2-tpl-container .img-preview{
+	width:60px;
+	height:60px;
 }
-#tpl .img_url,
-#tpl .img_alt{
+#sinapicv2-tpl-container .img-url,
+#sinapicv2-tpl-container .img-alt{
 	width:100%;
 }
-#tpl table{
+#sinapicv2-tpl-container table{
 	width:100%;
-	border:1px solid rgb(230,230,230);
+	border:2px solid rgb(230,230,230);
 	padding:10px 0;
 	margin-bottom:10px;
 	padding-right:10px;
 	border-radius:3px;
 	box-shadow:0 0 0 1px white inset;
 }
-#tpl table:hover,
-#tpl table:nth-child(odd):hover{
-	background:white;
+#sinapicv2-tpl-container table:hover,
+#sinapicv2-tpl-container table:nth-child(odd):hover{
+	border:2px solid rgb(144,186,205);
+
 }
-#tpl table:nth-child(odd){
+#sinapicv2-tpl-container table:nth-child(odd){
 	background:rgb(249,249,249);
 }
-#tpl table:first-child{
+#sinapicv2-tpl-container table:first-child{
 	border:2px solid rgb(144,186,205);
 	background:white;
 	margin-top:0;
 }
-#tpl table .size_array_label{
+#sinapicv2-tpl-container table .size-array-label{
 	padding-right:20px;
 }
-#tpl table th{
+#sinapicv2-tpl-container table th{
 	width:auto;
 	text-align:right;
 }
-#tpl table .size_array{
+#sinapicv2-tpl-container table .size-array{
 	vertical-align:top;
 }
-#sinapic_upload_area{
+#sinapicv2-upload-area{
 	margin-top:10px;
 	position:relative;
 	overflow:hidden;
 }
-#sinapic_add_new{
-	width:100%;
+#sinapicv2-add{
+	position:relative;
 	font-size:2em;
-	height:2em;
+	padding:30px 20px;
+	height:auto;
+	margin-bottom:10px;
 	text-align:center;
+	overflow:hidden;
+	display:none;
+	text-shadow:0 1px 1px rgba(0,0,0,.5);
+	font-weight:bold;
+	line-height:40px;
 }
-#sinapic_btns .dropenter{
+#sinapicv2-btns .dropenter{
 	border:2px dashed rgb(200,200,200);
 }
-.sinapic_upload_new{
+#sinapicv2-file{
 	position:absolute;
 	top:-20px;
 	right:-20px;
-	font-size:999px;
+	font-size:9em;
 	opacity:0;
 	filter:alpha(opacity=0);
 	cursor:pointer;
-	margin:0;
-	padding:0;
-	font-family:simsun;
 }
-#sinapic_loading_tip,
-#sinapic_completion_tip{
+#sinapicv2-loading-tip,
+#sinapicv2-completion-tip{
 	margin-bottom:10px;
 }
+#sinapicv2-loading-tip > img{
+	display:block;
+}
+	#sinapicv2-loading-tip > .tip-status{
+		font-size:2em;
+		padding:1em;
+	}
 
-/*
-#sinapic_loading i{
-	background:url(../images/ajax_loader.gif) no-repeat;
-	background-position:2px 2px;
-	display:inline-block;
-	width:20px;
-	height:20px;
-	margin-right:5px;
-	vertical-align:bottom;
-}*/
-#sinapic_btns,
-#sinapic_unauthorize{
+#sinapicv2-btns,
+#sinapicv2-unauthorize{
 	position:relative;
 	display:none;
 	overflow:hidden;
 	margin-bottom:10px;
 }
+.btn-as-feature-image{
+	float:right;
+}
 /** 
- * sinapic_tools
+ * sinapic-tools
  */
-#sinapic_tools{
+#sinapicv2-tools{
 	position:relative;
 	display:none;
 	margin-bottom:10px;
 }
-	#sinapic_tools #clear_list{
+	#sinapicv2-clear-list{
 		float:right;
 	}
 .succes-thanks{
 	float:right;
 }
+#sinapicv2-split{
+	cursor:pointer;
+}
+#sinapicv2-container .dashicons{
+}
+
+#sinapicv2-error-file-tip{
+	display:none;
+	background:rgb(241, 215, 215);
+	overflow:hidden;
+	padding:.3rem .5rem;
+	border:1px solid rgba(0,0,0,.1);
+	border-radius:2px;
+	margin-bottom:10px;
+}
+	#sinapicv2-error-file-tip .des{
+		display:block;
+		font-weight:bold;
+	}
+	#sinapicv2-error-file-tip .error-file{
+		float:left;
+		margin:5px 5px 0 0;
+		border-radius:2px;
+		padding:0 5px;
+		background:rgba(255,255,255,.8);
+		border:1px solid rgba(255,255,255,.1);
+	}
 /** 
- * tip-status
+ * .tip-status
  */
 .tip-status{
 	position:relative;
-	background:#F4FCEA;
-	padding:5px 10px 5px 30px;
-	border:1px solid #8CCE3B;
-	line-height:1.5em;
-	font-size:14px;
-	color:green;
+	padding:.3rem .5rem;
+	border-radius:2px;
+	border: 1px solid rgba(0,0,0,.1);
+	overflow:hidden;
 }
+	.tip-status .dashicons-update:before{
+		display:none;
+	}
+	.tip-status-small .dashicons-update{
+		width:20px;
+		height:20px;
+		background:url(../images/tip-status/spinner.gif);
+		display:inline-block;
+	}
+	.tip-status-large .dashicons-update,
+	.tip-status-middle .dashicons-update{
+		height:40px;
+		width:40px;
+		background:url(../images/tip-status/spinner-2x.gif);
+	}
+	.tip-status .dashicons-update + .after-icon{
+		vertical-align:middle;
+		overflow:hidden;
+	}
+	.tip-status-middle.tip-status-loading .after-icon,
+	.tip-status-large.tip-status-loading .after-icon{
+		position:relative;
+		top:7px;
+	}
+	/** 
+	 * .ui-dialog-content
+	 */
+	.ui-dialog-content > .tip-status{
+		background:none;
+		border: none;
+	}
 	/** 
 	 * type
 	 */
+	.tip-status-success,
+	.tip-status-green{background:#defcd5;color:#52a954}
+	
 	.tip-status-error,
-	.tip-status-ban{background:#FFEBE8;border:1px solid #DD3C10;color:#D5442F}
-	.tip-status-warning{background:#FEEFB3;border:1px solid #FF8000;color:#D5442F}
-	.tip-status-info{background:#BDE5F8;border:1px solid #4DA6FF;color:#00529B}	
-	.tip-status-loading{background:#FBEC88;border:1px solid #FAD42E;color:#363636}
+	.tip-status-ban{background:#f1d7d7;color:#a95252}
+	
+	.tip-status-warning{background:#f6f3d5;color:#96904d}
+	
+	.tip-status-help,
+	.tip-status-blue,
+	.tip-status-info{background:#e6f4f9;color:#4d8796}
+	.tip-status-question{background:#FBEC88;color:#363636}
+	
+	.tip-status-spinner,
+	.tip-status-loading{background:#f5f5f5}
 	/** 
 	 * size 
 	 */
-	.tip-status-middle{padding-left:50px;padding-right:20px;font-size:32px}
-	.tip-status-large{padding-left:60px;padding-right:30px;font-size:42px}
-	/** 
-	 * icon
-	 */
-	.tip-status .icon{
-		position:absolute;
-		display:block;
-		left:9px;
-		top:8px;
-		width:14px;
-		height:14px;
-		background:url(../images/tip-status/icons.png) no-repeat;
-		background-position:0 -74px;
-	}
-	.tip-status .loading{background:url(../images/tip-status/loading-small.gif) no-repeat 0 0}
-		/** 
-		 * icon size & position
-		 */
-		.tip-status-middle .icon{width:32px;height:32px;top:12px;}
-		.tip-status-large .icon{width:42px;height:42px;top:15px;}
-		
-		/** 
-		 * icon background
-		 */
-		.tip-status-small .error{background-position:-14px -74px}
-		.tip-status-small .question{background-position:-28px -74px}
-		.tip-status-small .info{background-position:-42px -74px}
-		.tip-status-small .ban{background-position:-56px -74px}
-		.tip-status-small .warning{background-position:-70px -74px}
-		
-		.tip-status-middle .success{background-position:0 -42px}
-		.tip-status-middle .error{background-position:-32px -42px}
-		.tip-status-middle .question{background-position:-64px -42px}
-		.tip-status-middle .info{background-position:-96px -42px}
-		.tip-status-middle .ban{background-position:-128px -42px}
-		.tip-status-middle .warning{background-position:-160px -42px}
-		.tip-status-middle .loading{background:url(../images/tip-status/loading-middle.gif) no-repeat 0 0}
-		
-		.tip-status-large .success{background-position:0 0}
-		.tip-status-large .error{background-position:-42px 0}
-		.tip-status-large .question{background-position:-84px 0}
-		.tip-status-large .info{background-position:-126px 0}
-		.tip-status-large .ban{background-position:-168px 0}
-		.tip-status-large .warning{background-position:-210px 0}
-		.tip-status-large .loading{background:url(../images/tip-status/loading-large.gif) no-repeat 0 0}
-	
+	.tip-status-middle{font-size:1.5rem}
+	.tip-status-large{font-size:2rem}

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sinapicv2-1.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-22 01:35+0800\n"
-"PO-Revision-Date: 2014-08-22 01:35+0800\n"
+"POT-Creation-Date: 2015-01-09 17:33+0800\n"
+"PO-Revision-Date: 2015-01-09 17:36+0800\n"
 "Last-Translator: Km.Van <kmvan.com@gmail.com>\n"
 "Language-Team: INN STUDIO <inn.studio.com@gmail.com>\n"
 "Language: zh_CN\n"
@@ -14,55 +14,54 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 1.6.7\n"
+"X-Generator: Poedit 1.7.1\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: sinapicv2.php:38 sinapicv2.php:1300
-msgid "Sina Pic v2"
-msgstr "屌图床V2"
+#: sinapicv2.php:46
+msgid "SinaPic v2"
+msgstr "屌图床v2"
 
-#: sinapicv2.php:39
+#: sinapicv2.php:47
 msgid "http://inn-studio.com/sinapicv2"
 msgstr "http://inn-studio.com/sinapicv2"
 
-#: sinapicv2.php:40
+#: sinapicv2.php:48
 msgid ""
 "Best Image Hosting Plugin for WP. Upload your picture to sina weibo and show "
 "it on your site."
-msgstr ""
-"最好（Diao）的 WP 图床插件。上传您的图片至新浪图床，并在您的站点中显示。"
+msgstr "最好用的 WP 图床插件。上传您的图片至新浪微博图床，并在您的站点中显示。"
 
-#: sinapicv2.php:41
+#: sinapicv2.php:49
 msgid "http://inn-studio.com"
 msgstr "http://inn-studio.com"
 
-#: sinapicv2.php:47
+#: sinapicv2.php:57
 msgid "http://update.inn-studio.com"
 msgstr "http://update.cn.inn-studio.com"
 
-#: sinapicv2.php:51
+#: sinapicv2.php:61
 msgid "Check for updates"
 msgstr "检测更新"
 
-#: sinapicv2.php:52
+#: sinapicv2.php:62
 #, php-format
 msgid "The URL %s does not point to a valid plugin metadata file. "
 msgstr "该URL %s 指向的不是一个有效的插件元数据文件。"
 
-#: sinapicv2.php:53
+#: sinapicv2.php:63
 msgid "WP HTTP error: "
 msgstr "WP HTTP 错误："
 
-#: sinapicv2.php:54
+#: sinapicv2.php:64
 #, php-format
 msgid "HTTP response code is %s . (expected: 200) "
 msgstr "HTTP返回代码为 %s。（预期应为：200）"
 
-#: sinapicv2.php:55
+#: sinapicv2.php:65
 msgid "wp_remote_get() returned an unexpected result."
 msgstr "wp_remote_get() 返回了一个意外的结果。"
 
-#: sinapicv2.php:56
+#: sinapicv2.php:66
 #, php-format
 msgid ""
 "Can not to read the Version header for %s. The filename may be incorrect, or "
@@ -70,458 +69,721 @@ msgid ""
 msgstr ""
 "不过读取版本头 %s。文件名不正确或文件不处于/wp-content/plugins 文件夹中。"
 
-#: sinapicv2.php:57
+#: sinapicv2.php:67
 #, php-format
 msgid "Skipping update check for %s - installed version unknown."
 msgstr "跳过更新检测 %s - 未知的已装版本"
 
-#: sinapicv2.php:58
+#: sinapicv2.php:68
 msgid "This plugin is up to date."
 msgstr "该插件已是最新版。"
 
-#: sinapicv2.php:59
+#: sinapicv2.php:69
 msgid "A new version of this plugin is available."
 msgstr "一个新版本的插件已可用。"
 
-#: sinapicv2.php:60
+#: sinapicv2.php:70
 #, php-format
 msgid "Unknown update checker status \"%s\""
 msgstr "未知更新检测状态 \"%s\""
 
-#: sinapicv2.php:88
+#: sinapicv2.php:97
 msgid "Settings"
 msgstr "设置"
 
-#: sinapicv2.php:172 sinapicv2.php:176
+#: sinapicv2.php:262 sinapicv2.php:266
 msgid "Congratulation, SinaPicV2 has been authorized!"
-msgstr "恭喜，屌图床授权成功！"
+msgstr "恭喜，屌图床v2授权成功！"
 
-#: sinapicv2.php:176
+#: sinapicv2.php:266
 msgid "Close this window and reload the plugin UI."
 msgstr "请关闭此窗口并重新载入插件界面。"
 
-#: sinapicv2.php:189
+#: sinapicv2.php:279
 msgid "Authorized."
 msgstr "已授权。"
 
-#: sinapicv2.php:192
+#: sinapicv2.php:282
 msgid "Unauthorize."
 msgstr "未授权。"
 
-#: sinapicv2.php:203 sinapicv2.php:437
+#: sinapicv2.php:300
+#, php-format
+msgid "Upload failed, file has an error code: %s"
+msgstr "上传失败，文件中有一个错误代码：%s"
+
+#: sinapicv2.php:309
 msgid "Not enough params."
 msgstr "参数不足。"
 
-#: sinapicv2.php:207
+#: sinapicv2.php:318
+msgid "Invalid file type."
+msgstr "抱歉，无效的文件类型。"
+
+#: sinapicv2.php:328
 msgid "Please use your Sina Weibo account to authorize the plugin."
 msgstr "请使用您的新浪微博帐号授权此插件。"
 
-#: sinapicv2.php:249
+#: sinapicv2.php:345
+msgid "Upload by Sinapicv2"
+msgstr "通过 “屌图床v2” 上传"
+
+#: sinapicv2.php:380
 #, php-format
 msgid ""
 "Sorry, upload failed. Please try again later or contact the plugin author. "
-"Weibo returns an error message: %s"
-msgstr "抱歉，上传失败。请稍候尝试或联系插件作者。微博返回了一个错误信息：%s"
+"The reasons for this situation maybe the Weibo server does not receive the "
+"file from your server. Weibo returns an error message: %s"
+msgstr ""
+"对不起，上传失败。请稍后重试或联系插件作者。在这种情况的原因也许是微博的服务"
+"器没有收到您的服务器上的文件。微博返回一条错误消息：%s"
 
-#: sinapicv2.php:270 sinapicv2.php:304
-msgid "No found any backup data. "
-msgstr "没用发现任何备份数据。"
-
-#: sinapicv2.php:289
-msgid "The picture will be skip because it is exist. "
-msgstr "该图片因为已经存在，将会被跳过。"
-
-#: sinapicv2.php:293
-msgid "The picture downloaded, continue to download next picture... "
-msgstr "该图片下载完成，下一张图片开始下载…"
-
-#: sinapicv2.php:295
+#: sinapicv2.php:393 sinapicv2.php:444 sinapicv2.php:497 sinapicv2.php:548
 msgid ""
-"No found the picture from server, skip it and continue to download next "
-"picture... "
-msgstr "没用在图床中发现该图片，正在跳过并继续下载下一张…"
+"Security permission was insufficient to operate, please make sure you are "
+"administrator."
+msgstr "安全权限不足无法进行操作，请确保您是管理员身份。"
 
-#: sinapicv2.php:320
-msgid "No data to restore."
-msgstr "看起来似乎没有任何资料需要还原。"
+#: sinapicv2.php:430
+msgid "Not post can be match to backup."
+msgstr "暂无匹配到文章以备份。"
 
-#: sinapicv2.php:415
-msgid "Congratulation, the restoration is completed. "
-msgstr "恭喜，数据还原成功。"
+#: sinapicv2.php:452
+msgid "No found any post."
+msgstr "暂无发现任何文章。"
 
-#: sinapicv2.php:427
-msgid "Invalid post ID."
-msgstr "不合法的文章ID。"
+#: sinapicv2.php:458
+msgid "No any image to download"
+msgstr "没有任何图片下载"
 
-#: sinapicv2.php:432
-msgid "Seem  nothing needs to restore."
-msgstr "看起来似乎没有任何文章需要还原。"
+#: sinapicv2.php:471
+#, php-format
+msgid "The picture (%s) will be skipped because it already exists. "
+msgstr "此图片（%s）将被跳过，因为它已经存在了。"
 
-#: sinapicv2.php:751 sinapicv2.php:752
+#: sinapicv2.php:482
+#, php-format
+msgid "The picture (%s) downloaded, continue to download next picture... "
+msgstr "图片（%s）已成功下载，继续下载下一张图片……"
+
+#: sinapicv2.php:486
+#, php-format
+msgid ""
+"No found the picture (%s) from server, it will be skipped and continue to "
+"download next picture... "
+msgstr "无法在微博服务器中获取此张图片（%s），正在跳过并继续下载下一张……"
+
+#: sinapicv2.php:506 sinapicv2.php:554
+msgid ""
+"Can not find any backup data from local. Perhaps you need to backup data "
+"first. Restoration has been canceled."
+msgstr ""
+"无法从本机中找到任何备份资料，或许您需要首先进行备份。还原操作已被取消。"
+
+#: sinapicv2.php:531
+msgid "Congratulation, all images have been restored to your wordpress server."
+msgstr "Oh yeah! 所有图片已成功还原到您的 WordPress 服务器了。"
+
+#: sinapicv2.php:535 sinapicv2.php:596
+msgid ""
+"Unable to match any post by backup data. Perhaps your backup data has "
+"expired, please redo backup operation."
+msgstr ""
+"无法从备份资料中匹配到任何文章，或许您的备份资料已过期，请重新进行备份操作。"
+
+#: sinapicv2.php:592
+msgid "Congratulation, all images have been restored to weibo server."
+msgstr "Oh yeah! 所有图片已还原到微博服务器了。"
+
+#: sinapicv2.php:605
+msgid "Invalid param."
+msgstr "抱歉，无效的参数。"
+
+#: sinapicv2.php:872 sinapicv2.php:873
 msgid "SinaPic v2 options"
 msgstr "屌图床V2 选项"
 
-#: sinapicv2.php:840 sinapicv2.php:859
-#, php-format
-msgid "%s minutes"
-msgstr "%s 分钟"
-
-#: sinapicv2.php:842 sinapicv2.php:861
-#, php-format
-msgid "%s hours"
-msgstr "%s 小时"
-
-#: sinapicv2.php:844 sinapicv2.php:863
-#, php-format
-msgid "%s seconds"
-msgstr "%s 秒"
-
-#: sinapicv2.php:877
+#: sinapicv2.php:970
 msgid "Unauthorize"
 msgstr "未授权。"
 
-#: sinapicv2.php:893
+#: sinapicv2.php:983
 msgid "Error code: "
 msgstr "错误代码："
 
-#: sinapicv2.php:894
+#: sinapicv2.php:984 sinapicv2.php:985
 msgid ""
 "Program error, can not continue to operate. Please try again or contact "
 "author. "
 msgstr "数据发生错误，程序无法继续操作。请重试或联系插件作者。"
 
-#: sinapicv2.php:895
+#: sinapicv2.php:986
 msgid "Getting backup config data, please wait... "
 msgstr "正在获取备份配置数据，请稍后…"
 
-#: sinapicv2.php:896
+#: sinapicv2.php:987
 msgid "Current processing: "
 msgstr "当前进程："
 
-#: sinapicv2.php:897
+#: sinapicv2.php:988
 msgid ""
 "Downloading, you can restore the pictures to post after the download is "
 "complete. "
 msgstr "下载中，当完成下载后，您可以还原图片到文章。"
 
-#: sinapicv2.php:898
-msgid "Download completed, you can restore the pictures to post. "
-msgstr "下载完成，您可以还原图片到文章。"
+#: sinapicv2.php:989
+msgid "Download completed, you can perform a restore operation."
+msgstr "下载完成，您可以进行还原操作。"
 
-#: sinapicv2.php:899
+#: sinapicv2.php:990
+msgid "Current file has been downloaded, skipping it."
+msgstr "当前文件已下载过了，正在跳过…"
+
+#: sinapicv2.php:991
 msgid "The data is being restored , please wait...  "
 msgstr "数据正在还原，请稍后…"
 
-#: sinapicv2.php:903
-msgid "SINAPICV2 OPTIONS"
-msgstr "屌图床V2 选项"
+#: sinapicv2.php:997
+msgid "plugin settings"
+msgstr "插件设置"
 
-#: sinapicv2.php:907
+#: sinapicv2.php:1000
 msgid "Settings have been saved."
 msgstr "设置已被保存。"
 
-#: sinapicv2.php:914
-msgid "Loading..."
+#: sinapicv2.php:1008 sinapicv2.php:1352
+msgid "Loading, please wait..."
 msgstr "加载中，请稍后…"
 
-#: sinapicv2.php:918
-msgid "Base Setting"
+#: sinapicv2.php:1011
+msgid "Plugin common settings."
+msgstr "插件通用的设置"
+
+#: sinapicv2.php:1011
+msgid "Basic settings"
 msgstr "基本设置"
 
-#: sinapicv2.php:922
+#: sinapicv2.php:1014
 msgid "Authorization information"
 msgstr "授权信息"
 
-#: sinapicv2.php:926
+#: sinapicv2.php:1018
 msgid "Authorization expires time"
 msgstr "授权过期时间"
 
-#: sinapicv2.php:932
+#: sinapicv2.php:1024
 msgid "Authorization Link"
 msgstr "授权链接"
 
-#: sinapicv2.php:934
+#: sinapicv2.php:1026
 msgid "Click here to authorize"
 msgstr "点击进行授权"
 
-#: sinapicv2.php:942
+#: sinapicv2.php:1034
 msgid "Plugin settings"
 msgstr "插件设置"
 
-#: sinapicv2.php:944
+#: sinapicv2.php:1036
 msgid ""
 "If your theme supports feature thumbnail form post meta and you want to use "
-"it, please tell the SinaPic what is the post meta name(key). Fill in the "
+"it, please tell the Sinapicv2 what is the post meta name(key). Fill in the "
 "text area."
 msgstr ""
-"如果您的主题支持从文章自定义项中显示特色图，并且您想要显示它，请告诉 SinaPic "
-"这个自定义项的名称（Key值）是什么。请填写在下面的文本框区域。"
+"如果您的主题支持从文章自定义项中显示特色图，并且您想要显示它，请告诉 屌图床"
+"v2 这个自定义项的名称（Key值）是什么。请填写在下面的文本框区域。"
 
-#: sinapicv2.php:949
+#: sinapicv2.php:1041
+msgid "Enable SSL (https://) image address"
+msgstr "启用 SSL（https://）图片地址"
+
+#: sinapicv2.php:1043
+msgid "Enabled"
+msgstr "启用"
+
+#: sinapicv2.php:1047
 msgid "Feature thumbnail meta name: "
 msgstr "特色图自定义项名称："
 
-#: sinapicv2.php:953
+#: sinapicv2.php:1051
 msgid "Default: "
 msgstr "默认："
 
-#: sinapicv2.php:957
+#: sinapicv2.php:1055
+msgid "Image title attribute"
+msgstr "图片 title 属性"
+
+#: sinapicv2.php:1063
+msgid "Display image title attribute as same as alt attribute."
+msgstr "显示与图片 alt 属性相同的 title 属性"
+
+#: sinapicv2.php:1068
 msgid "Delete after upload"
 msgstr "上传图片后删除微博"
 
-#: sinapicv2.php:965
+#: sinapicv2.php:1076
 msgid "After upload a message and it will be destroy if enable"
 msgstr "如果启用，发表一条微博后，它自己将会被删除（图片保留）"
 
-#: sinapicv2.php:973
+#: sinapicv2.php:1084
 msgid "Backup & bestore"
 msgstr "备份 & 还原"
 
-#: sinapicv2.php:974
+#: sinapicv2.php:1085
 msgid ""
-"With version 1.1 or higher, the picture will be recorded when upload "
-"successful. Now, SinaPic can download the pictures from picture server to "
-"your host space. And you can restore the pictures to post if SinaPic have "
-"downloaded."
-msgstr ""
-"在1.1或更高版本，图片在上传的时候将会被记录。现在，屌图床能够从图床中下载已经"
-"上传过的图片到您的主机空间，并且您可以将以前的图床图片替换为已下载的图片。"
+"With version 2.0.0 or higher, sinapicv2 supports to backup sina image form "
+"all posts."
+msgstr "在 2.0.0 或更高版本中，屌图床v2支持从所有文章中备份微博图片。"
 
-#: sinapicv2.php:975
+#: sinapicv2.php:1086
 #, php-format
-msgid "The backup pictures will be saved to <strong>%s</strong> in your host."
-msgstr "备份图片将会被保存在您主机的 <strong>%s</strong> 目录中。"
+msgid "The backup pictures will be saved to %s in your host."
+msgstr "备份的图片将会被保存在您服务器（主机）的 %s 目录中。"
 
-#: sinapicv2.php:980
+#: sinapicv2.php:1086
+msgid "Click to view"
+msgstr "点击查看"
+
+#: sinapicv2.php:1091
 msgid "Backup pictures: "
 msgstr "备份图片："
 
-#: sinapicv2.php:981 sinapicv2.php:1009
-msgid "server &rarr; my space"
-msgstr "图床服务器 &rarr; 我的空间"
+#: sinapicv2.php:1092
+msgid "Pictures server &rarr; my space"
+msgstr "微博服务器 &rarr; 我的空间"
 
-#: sinapicv2.php:986
+#: sinapicv2.php:1102
 msgid "click to start BACKUP"
 msgstr "点击开始备份"
 
-#: sinapicv2.php:991
+#: sinapicv2.php:1105
 #, php-format
 msgid ""
-"Now %s picture(s) have been recorded. They maybe need %s to complete the "
-"download."
-msgstr "现在已有 %s 张图片被记录。它们大概需要 %s 才能下载完成。"
+"Backup operation will search all sina images and downloads them to backup "
+"folder from your publish about %s posts."
+msgstr ""
+"备份操作将会从您所有（%s 篇）公开日志中，搜索所有微博图片，并且下载它们到备份"
+"文件夹中。"
 
-#: sinapicv2.php:993 sinapicv2.php:1019
-msgid "No picture was recorded."
-msgstr "没有图片被记录。"
+#: sinapicv2.php:1108
+msgid "Attention: you need DO THIS backup operation in first time."
+msgstr "注意：首先您需要进行备份操作。"
 
-#: sinapicv2.php:1002
-msgid "Restore pictures"
+#: sinapicv2.php:1115
+msgid "Restore pictures:"
 msgstr "还原图片："
 
-#: sinapicv2.php:1003
-msgid "server &harr; my space: "
-msgstr "图床服务器 &harr; 我的空间"
-
-#: sinapicv2.php:1010
-msgid "my space &rarr; server"
-msgstr "我的空间 &rarr; 图床服务器"
-
-#: sinapicv2.php:1017
+#: sinapicv2.php:1116
 #, php-format
+msgid "Pictures server %s my space: "
+msgstr "微博服务器 %s  我的空间"
+
+#: sinapicv2.php:1126
+#, php-format
+msgid "%s Server to %s %sMy space"
+msgstr "%s 从“微博服务器”至 %s %s 我的空间"
+
+#: sinapicv2.php:1130
+#, php-format
+msgid "%sMy space to %s %sServer"
+msgstr "%s 从“我的空间”至 %s %s 微博服务器"
+
+#: sinapicv2.php:1136
 msgid ""
-"Now  %s post(s) have been recorded. They maybe need %s to complete the "
-"restore."
-msgstr "现在已有 %s 篇日志被记录。它们大概需要 %s 才能转换完毕。"
+"Server to my space: all weibo server picture addresses replace to your space "
+"pictur addresses."
+msgstr ""
+"从微博服务器至我的空间：所有微博服务器图片地址替换为您的主机空间图片地址。"
 
-#: sinapicv2.php:1030
-msgid "About"
-msgstr "关于"
+#: sinapicv2.php:1139
+msgid ""
+"My space to server: all your space picture addresses replace to weibo server "
+"picture addresses."
+msgstr ""
+"从我的空间至微博服务器：所有您的主机空间图片地址替换为微博服务器图片地址。"
 
-#: sinapicv2.php:1033
+#: sinapicv2.php:1148
+msgid "About &amp; Help"
+msgstr "关于 &amp; 帮助"
+
+#: sinapicv2.php:1151
 msgid "Plugin Information"
 msgstr "插件信息"
 
-#: sinapicv2.php:1037
+#: sinapicv2.php:1155
 msgid "Plugin name: "
 msgstr "插件名称："
 
-#: sinapicv2.php:1043
+#: sinapicv2.php:1161
 msgid "Plugin version: "
 msgstr "插件版本："
 
-#: sinapicv2.php:1049
+#: sinapicv2.php:1167
 msgid "Plugin description: "
 msgstr "插件描述："
 
-#: sinapicv2.php:1055
+#: sinapicv2.php:1173
 msgid "Plugin home page: "
 msgstr "插件主页："
 
-#: sinapicv2.php:1061
+#: sinapicv2.php:1179
 msgid "Author home page: "
 msgstr "作者主页："
 
-#: sinapicv2.php:1067
+#: sinapicv2.php:1185
 msgid "Feedback and technical support: "
 msgstr "反馈与技术支持："
 
-#: sinapicv2.php:1069
+#: sinapicv2.php:1187
 msgid "E-Mail: "
 msgstr "电子邮件："
 
-#: sinapicv2.php:1071
+#: sinapicv2.php:1189
 msgid "QQ (for Chinese users): "
 msgstr "QQ（中国用户）："
 
-#: sinapicv2.php:1074
+#: sinapicv2.php:1192
 msgid "QQ Group (for Chinese users):"
 msgstr "QQ交流群（中国用户）："
 
-#: sinapicv2.php:1080
+#: sinapicv2.php:1198
 msgid "Donate a coffee: "
 msgstr "请一杯咖啡："
 
-#: sinapicv2.php:1083 sinapicv2.php:1084
+#: sinapicv2.php:1201 sinapicv2.php:1202
 msgid "Donation by Paypal"
 msgstr "用Paypal（贝宝）捐赠"
 
-#: sinapicv2.php:1086 sinapicv2.php:1087
+#: sinapicv2.php:1204 sinapicv2.php:1205
 msgid "Donation by Alipay"
 msgstr "用Alipay（支付宝）捐赠"
 
-#: sinapicv2.php:1100
+#: sinapicv2.php:1218
 msgid "Save all settings"
 msgstr "保存所有设置"
 
-#: sinapicv2.php:1118
-msgid "SinaPic v2 - Best Image Hosting Plugin for WP"
-msgstr "屌图床 V2 - 最好（Diao）的 WP 图床插件"
+#: sinapicv2.php:1234
+msgid "The best image host plugin for WP, do you agree?"
+msgstr "这是最好用的 WP 图床插件，您同意吗？"
 
-#: sinapicv2.php:1211
+#: sinapicv2.php:1235
+msgid "This is an artwork, no only plugin"
+msgstr "这不仅仅是插件，更是一件艺术品"
+
+#: sinapicv2.php:1236
+msgid "Powered by INN STUDIO"
+msgstr "INN STUDIO 精心出品"
+
+#: sinapicv2.php:1237
+msgid "Do you like me? Expression with real action: Alipay"
+msgstr "您喜欢我吗？请用实际行动表达：支付宝"
+
+#: sinapicv2.php:1238
+msgid "Cabbage and salted fish is plugin author's lunch"
+msgstr "作者的午餐只有咸鱼和白菜"
+
+#: sinapicv2.php:1239
+msgid "Cabbage and salted fish is plugin author's dinner"
+msgstr "作者的晚餐也是只有咸鱼和白菜"
+
+#: sinapicv2.php:1240
+msgid "Beskfast is not a part of plugin author"
+msgstr "早餐是什么，能吃吗？作者一脸疑惑"
+
+#: sinapicv2.php:1241
+msgid "Join into QQ group 170306005 is one of feedback way"
+msgstr "加入 QQ 群 170306005 也是反馈途径之一"
+
+#: sinapicv2.php:1242
+msgid ""
+"People eat a lot of meals, but also to express gratitude repeatedly: Alipay, "
+"you know me"
+msgstr "人要吃很多餐饭，谢意也能多次表达：支付宝，你懂的"
+
+#: sinapicv2.php:1243
+msgid "Today the weather is good"
+msgstr "今天天气不错"
+
+#: sinapicv2.php:1244
+msgid "This artwork is part of the world"
+msgstr "这件艺术品是属于世界的"
+
+#: sinapicv2.php:1251
+msgid "Sinapic v2"
+msgstr "屌图床v2"
+
+#: sinapicv2.php:1324
 msgid "Error: "
 msgstr "错误："
 
-#: sinapicv2.php:1212
+#: sinapicv2.php:1325
 msgid ""
 "Upload failed, please try again. If you still failed, please contact the "
 "plugin author."
 msgstr "上传失败，请稍候重试。如依然失败，请联系插件作者。"
 
-#: sinapicv2.php:1213
+#: sinapicv2.php:1326
 msgid ""
 "Sorry, plugin can not get authorized data, please try again later or contact "
 "plugin author."
 msgstr "抱歉，插件无法获取授权信息，请稍候重试或联系插件作者。"
 
-#: sinapicv2.php:1214
+#: sinapicv2.php:1327
 msgid "Uploading {0}/{1}, please wait..."
 msgstr "正在上传 {0}/{1}，请稍候…"
 
-#: sinapicv2.php:1215
+#: sinapicv2.php:1328
 msgid "{0} files have been uploaded, enjoy it."
 msgstr ""
 "{0} 个文件上传成功，嘻嘻… <a class=\"succes-thanks\" target=\"_blank\" href="
 "\"http://ww3.sinaimg.cn/large/686ee05djw1eihtkzlg6mj216y16ydll.jpg\" title="
 "\"支付宝扫一扫，请作者喝杯咖啡\">支持屌图床，支付宝扫一扫 :）</a>"
 
-#: sinapicv2.php:1216
+#: sinapicv2.php:1329
 msgid "Image URL: "
 msgstr "图片地址："
 
-#: sinapicv2.php:1217
+#: sinapicv2.php:1330
 msgid "ALT attribute: "
 msgstr "ALT 属性："
 
-#: sinapicv2.php:1218
+#: sinapicv2.php:1331
 msgid "Set ALT attribute text"
 msgstr "设置 ALT 属性文本"
 
-#: sinapicv2.php:1219
+#: sinapicv2.php:1332
 msgid "Control: "
 msgstr "操作："
 
-#: sinapicv2.php:1220
+#: sinapicv2.php:1333
 msgid "Insert to post with link"
 msgstr "作为图片带链接插入到文章"
 
-#: sinapicv2.php:1221
+#: sinapicv2.php:1334
 msgid "Insert to post image only"
 msgstr "作为图片插入到文章"
 
-#: sinapicv2.php:1222
+#: sinapicv2.php:1335
 msgid "As custom meta feature image"
 msgstr "作为自定义字段特色图"
 
-#: sinapicv2.php:1225
+#: sinapicv2.php:1340
 msgid "max 150x150, crop"
 msgstr "最大 150x150，截取"
 
-#: sinapicv2.php:1226
+#: sinapicv2.php:1341
 msgid "max-width:600"
 msgstr "最大宽度：600"
 
-#: sinapicv2.php:1227
-msgid "organize size"
-msgstr "原始大小"
+#: sinapicv2.php:1342
+msgid "original size"
+msgstr "原始尺寸"
 
-#: sinapicv2.php:1228
+#: sinapicv2.php:1343
 msgid "max-width:80 or max-height:80"
 msgstr "最大宽度：80 或 最大高度：80"
 
-#: sinapicv2.php:1229
+#: sinapicv2.php:1344
 msgid "max-width:120 or max-height:120"
 msgstr "最大宽度：120 或 最大高度：120"
 
-#: sinapicv2.php:1230
+#: sinapicv2.php:1345
 msgid "max-width:440"
 msgstr "最大宽度：440"
 
-#: sinapicv2.php:1238
-msgid "Loading, please wait..."
-msgstr "加载中，请稍后…"
-
-#: sinapicv2.php:1241
+#: sinapicv2.php:1355
 #, php-format
 msgid ""
-"Sorry, SinaPicV2 needs to authorize from your WeiBo account, <a href=\"%s\" "
-"target=\"blank\" id=\"sinapic_go_authorize\" target=\"_blank\"><b>please "
-"click here to authorize</b></a>.<br/>If you has authorized just now, <a href="
-"\"javascript:void(0);\" id=\"sinapic_reload\"><b>please click here to reload "
-"me</b></a>."
+"Sorry, Sinapicv2 needs to authorize from your Weibo account, <a href=\"%s\"  "
+"id=\"sinapicv2-go-authorize\" target=\"_blank\"><strong>please click here to "
+"authorize</strong></a>.<br/>If you has authorized just now, <a href="
+"\"javascript:void(0);\" id=\"sinapicv2-reloadme\"><strong>please click here "
+"to reload me</strong></a>."
 msgstr ""
-"抱歉，屌图床需要从您的微博帐号获得授权，<a href=\"%s\" target=\"blank\"><b>请"
-"点击这里以授权</b></a>。<br/>如果您刚才已经进行了授权，<a href=\"javascript:"
-"void(0);\" id=\"sinapic_reload\"><b>请点击这里重新加载人家</b></a>。"
+"抱歉，屌图床v2需要您的微博帐号授权，, <a href=\"%s\"  id=\"sinapicv2-go-"
+"authorize\" target=\"_blank\"><strong>点击此处授权</strong></a>。<br/>如果您"
+"已授权，<a href=\"javascript:void(0);\" id=\"sinapicv2-reloadme\"><strong>请"
+"点击此处重新加载</strong></a>。"
 
-#: sinapicv2.php:1244
-msgid "Select or Drag picture(s) to upload (Maximum 5MB/p)"
-msgstr "请选择或拖放图片上传（最大5MB/张）"
+#: sinapicv2.php:1359
+msgid "Select or Drag picture(s) to upload"
+msgstr "请选择或拖放图片上传"
 
-#: sinapicv2.php:1249
+#: sinapicv2.php:1364
+msgid "Detects that files can not be uploaded:"
+msgstr "检测到无法上传的文件："
+
+#: sinapicv2.php:1368
 msgid "Insert to post from list with link"
 msgstr "批量插入图片带链接"
 
-#: sinapicv2.php:1250
+#: sinapicv2.php:1369
 msgid "Insert to post from list without link"
 msgstr "批量插入图片不带链接"
 
-#: sinapicv2.php:1253
+#: sinapicv2.php:1372
 msgid "Do not use separate"
 msgstr "不使用分隔符"
 
-#: sinapicv2.php:1254
+#: sinapicv2.php:1373
 msgid "Use \"Next page\" tag"
 msgstr "使用“下一页”分隔符"
 
-#: sinapicv2.php:1258
+#: sinapicv2.php:1376
 msgid "Clear list"
 msgstr "清空列表"
 
-#: sinapicv2.php:1300
+#: sinapicv2.php:1418
 #, php-format
 msgid "Image uploader by %s@INN STUDIO"
 msgstr "图床 by %s@INN STUDIO"
+
+#: sinapicv2.php:1418
+msgid "Sina Pic v2"
+msgstr "屌图床V2"
+
+#~ msgid "Upload by SinaPicV2"
+#~ msgstr "通过 “屌图床v2” 上传"
+
+#~ msgid ""
+#~ "Sorry, SinaPicV2 needs to authorize from your WeiBo account, <a href=\"%s"
+#~ "\" target=\"blank\" id=\"sinapic_go_authorize\" target=\"_blank"
+#~ "\"><b>please click here to authorize</b></a>.<br/>If you has authorized "
+#~ "just now, <a href=\"javascript:void(0);\" id=\"sinapic_reload\"><b>please "
+#~ "click here to reload me</b></a>."
+#~ msgstr ""
+#~ "抱歉，屌图床需要从您的微博帐号获得授权，<a href=\"%s\" target=\"blank"
+#~ "\"><b>请点击这里以授权</b></a>。<br/>如果您刚才已经进行了授权，<a href="
+#~ "\"javascript:void(0);\" id=\"sinapic_reload\"><b>请点击这里重新加载人家</"
+#~ "b></a>。"
+
+#~ msgid "Sinapic v2 - %s"
+#~ msgstr "屌图床v2 - %s"
+
+#~ msgid "Sinapic v2 - The best image host plugin for WP"
+#~ msgstr "屌图床v2 - "
+
+#~ msgid ""
+#~ "If your theme supports feature thumbnail form post meta and you want to "
+#~ "use it, please tell the SinaPic what is the post meta name(key). Fill in "
+#~ "the text area."
+#~ msgstr ""
+#~ "如果您的主题支持从文章自定义项中显示特色图，并且您想要显示它，请告诉 "
+#~ "SinaPic 这个自定义项的名称（Key值）是什么。请填写在下面的文本框区域。"
+
+#~ msgid "SinaPic v2 - Best Image Hosting Plugin for WP"
+#~ msgstr "屌图床 V2 - 最好（Diao）的 WP 图床插件"
+
+#~ msgid "Pictures server &harr; my space: "
+#~ msgstr "微博服务器 &harr; 我的空间"
+
+#~ msgid "About & Help"
+#~ msgstr "关于&amp;帮助"
+
+#~ msgid ""
+#~ "With version 2.0.0 or higher, sinapicv2 supports to backup sina image in "
+#~ "all posts."
+#~ msgstr "在 2.0.0 或更高版本中，屌图床v2支持备份微博图片"
+
+#~ msgid ""
+#~ "Sorry, upload failed. Please try again later or contact the plugin "
+#~ "author. Weibo returns an error message: %s"
+#~ msgstr ""
+#~ "抱歉，上传失败。请稍候尝试或联系插件作者。微博返回了一个错误信息：%s"
+
+#~ msgid "No found any backup data. "
+#~ msgstr "没用发现任何备份数据。"
+
+#~ msgid "The picture will be skip because it is exist. "
+#~ msgstr "该图片因为已经存在，将会被跳过。"
+
+#~ msgid "The picture downloaded, continue to download next picture... "
+#~ msgstr "该图片下载完成，下一张图片开始下载…"
+
+#~ msgid ""
+#~ "No found the picture from server, skip it and continue to download next "
+#~ "picture... "
+#~ msgstr "没用在图床中发现该图片，正在跳过并继续下载下一张…"
+
+#~ msgid "No data to restore."
+#~ msgstr "看起来似乎没有任何资料需要还原。"
+
+#~ msgid "Congratulation, the restoration is completed. "
+#~ msgstr "恭喜，数据还原成功。"
+
+#~ msgid "Invalid post ID."
+#~ msgstr "不合法的文章ID。"
+
+#~ msgid "Seem  nothing needs to restore."
+#~ msgstr "看起来似乎没有任何文章需要还原。"
+
+#~ msgid "%s minutes"
+#~ msgstr "%s 分钟"
+
+#~ msgid "%s hours"
+#~ msgstr "%s 小时"
+
+#~ msgid "%s seconds"
+#~ msgstr "%s 秒"
+
+#~ msgid "Download completed, you can restore the pictures to post. "
+#~ msgstr "下载完成，您可以还原图片到文章。"
+
+#~ msgid "SINAPICV2 OPTIONS"
+#~ msgstr "屌图床V2 选项"
+
+#~ msgid "Loading..."
+#~ msgstr "加载中，请稍后…"
+
+#~ msgid "Base Setting"
+#~ msgstr "基本设置"
+
+#~ msgid ""
+#~ "With version 1.1 or higher, the picture will be recorded when upload "
+#~ "successful. Now, SinaPic can download the pictures from picture server to "
+#~ "your host space. And you can restore the pictures to post if SinaPic have "
+#~ "downloaded."
+#~ msgstr ""
+#~ "在1.1或更高版本，图片在上传的时候将会被记录。现在，屌图床能够从图床中下载"
+#~ "已经上传过的图片到您的主机空间，并且您可以将以前的图床图片替换为已下载的图"
+#~ "片。"
+
+#~ msgid ""
+#~ "The backup pictures will be saved to <strong>%s</strong> in your host."
+#~ msgstr "备份图片将会被保存在您主机的 <strong>%s</strong> 目录中。"
+
+#~ msgid "server &rarr; my space"
+#~ msgstr "图床服务器 &rarr; 我的空间"
+
+#~ msgid ""
+#~ "Now %s picture(s) have been recorded. They maybe need %s to complete the "
+#~ "download."
+#~ msgstr "现在已有 %s 张图片被记录。它们大概需要 %s 才能下载完成。"
+
+#~ msgid "No picture was recorded."
+#~ msgstr "没有图片被记录。"
+
+#~ msgid "Restore pictures"
+#~ msgstr "还原图片："
+
+#~ msgid "server &harr; my space: "
+#~ msgstr "图床服务器 &harr; 我的空间"
+
+#~ msgid "my space &rarr; server"
+#~ msgstr "我的空间 &rarr; 图床服务器"
+
+#~ msgid ""
+#~ "Now  %s post(s) have been recorded. They maybe need %s to complete the "
+#~ "restore."
+#~ msgstr "现在已有 %s 篇日志被记录。它们大概需要 %s 才能转换完毕。"
+
+#~ msgid "About"
+#~ msgstr "关于"
+
+#~ msgid "organize size"
+#~ msgstr "原始大小"
+
+#~ msgid "Select or Drag picture(s) to upload (Maximum 5MB/p)"
+#~ msgstr "请选择或拖放图片上传（最大5MB/张）"
 
 #~ msgid "No data to backup."
 #~ msgstr "看起来似乎没有任何资料需要备份。"

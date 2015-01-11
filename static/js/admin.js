@@ -1,361 +1,332 @@
 /**
- * admin
- * 
- * @return 
- * @example 
- * @version 1.0.1
+ * @version 2.0.0
  * @author KM (kmvan.com@gmail.com)
  * @copyright Copyright (c) 2011-2013 INN STUDIO. (http://www.inn-studio.com)
  **/
-var admin = {
-	
-	config : {
-		
-		backup_tip_id : '#sinapic_backup_tip',
-		backup_btn_id : '#sinapic_backup_btn',
-		
-		restore_tip_id : '#sinapic_restore_tip',
-		restore_btn_1_id : '#sinapic_restore_btn_1',
-		restore_btn_2_id : '#sinapic_restore_btn_2',
-		restore_btns_area_id : '#sinapic_restore_btns_area',
-		
-		process_url : '',
-		
-		lang : {
-			E00001 : 'Error code: ',
-			E00002 : 'Program error, can not continue to operate. Please try again or contact author. ',
-			
-			M00001 : 'Getting backup config data, please wait... ',
-			M00002 : 'Current processing: ',
-			M00003 : 'Downloading, you can restore the pictures to post after the download is complete. ',
-			M00005 : 'Download completed, you can restore the pictures to post. ',
+function sinapicv2_admin(){
 
-			M00010 : 'The data is being restored , please wait... ',
-			
-		}
+if(!$) $ = jQuery;
+
+this.config = {
+
+	process_url : '',
+	
+	lang : {
+		E00001 : 'Error code: ',
+		E00002 : 'Program error, can not continue to operate. Please try again or contact author. ',
 		
-	},
-	init : function(){
-		var _this = admin;
-		jQuery(document).ready(function(){
-			_this.tab.init();
-			_this.backup.bind();
-			_this.restore.bind();
+		M00001 : 'Getting backup config data, please wait... ',
+		M00002 : 'Current processing: ',
+		M00003 : 'Downloading, you can restore the pictures to post after the download is complete. ',
+		M00005 : 'Download completed, you can perform a restore operation. ',
+		M00006 : 'Current file has been downloaded, skipping it. ',
+
+		M00010 : 'The data is being restored , please wait... ',
+		
+	}
+}
+var cache = {},
+	that = this;
+
+this.init = function(){
+	$(document).ready(function(){
+		tab();
+		var oobackup = new backup(),
+			oorestore = new restore();
+		oobackup.init();
+		oorestore.init();
+	})
+}
+
+function backup(){
+	
+	this.init = function(){
+		cache.$backup_btn = $('#sinapicv2-backup-btn');
+		cache.$backup_btns = $('#sinapicv2-backup-btns');
+		cache.$backup_tip = $('#sinapicv2-backup-tip');
+		cache.$backup_progress_bar = $('#sinapicv2-backup-progress-bar');
+		
+		cache.$backup_btn.on('click',function(){
+			cache.$backup_btns.hide();
+			tip('loading',that.config.lang.M00001);
+			$.ajax({
+				url : that.config.process_url,
+				data : {
+					type : 'get_backup_data'
+				},
+				dataType : 'json'
+			}).done(function(data){
+				backup_done(data);
+			}).error(function(data){
+				tip('error',that.config.lang.E00002 + '<br/>' + data.responseText);
+				cache.$backup_btns.show();
+			}).always(function(){
+				// cache.$backup_btns.show();
+			});
 		});
-	},
-	/**
-	 * backup
+	}
+	/** 
+	 * backup done
 	 */
-	backup : {
-		bind : function(){
-			var _this = admin;
-			
-			jQuery(_this.config.backup_btn_id).on('click',function(){
-				_this.backup.hook.tip(_this.hook.status_tip('loading',_this.config.lang.M00001));
-				_this.backup.hook.tip('show');
-				_this.backup.hook.get_xml_data();
-				return false;
-			});
-		},
-		/**
-		 * hook
-		 */
-		hook : {
-			/**
-			 * get_xml_data
-			 * 
-			 * @return n/a
-			 * @example _this.backup.hook.get_xml_data()
-			 * @version 1.0.0
-			 * @author KM (kmvan.com@gmail.com)
-			 * @copyright Copyright (c) 2011-2013 INN STUDIO. (http://www.inn-studio.com)
-			 **/
-			get_xml_data : function(){
-				var _this = admin,
-					ajax_data = {
-						'type' : 'get_backup_data'
-					};
-				jQuery.ajax({
-					url : _this.config.process_url,
-					data : ajax_data,
-					dataType : 'json',
-					beforeSend : function(){
-						_this.backup.hook.tip('disabled');
-					},success : function(data){
-						/**
-						 * success
-						 */
-						if(data && data.status === 'success'){
-							var file_url_arr = data.des.content,
-								len = file_url_arr.length,
-								i = 0;
-							/**
-							 * loop
-							 */
-							function loop(file_url){
-								if(i < len){
-									var ajax_data_loop = {
-										'type' : 'download',
-										'file_url' : file_url == undefined ? file_url_arr[0] : file_url
-									};
-									jQuery.ajax({
-										url : _this.config.process_url,
-										data : ajax_data_loop,
-										dataType : 'json',
-										success : function(data){
-											/**
-											 * success
-											 */
-											if(data && data.status === 'success'){
-												_this.backup.hook.tip(_this.hook.status_tip('loading',data.des.content + _this.config.lang.M00002 + (i + 1) + ' / ' + len));
-												i++;
-												loop(file_url_arr[i]);
-											/**
-											 * error
-											 */
-											}else if(data && data.status === 'error'){
-												_this.backup.hook.tip(_this.hook.status_tip('loading',data.des.content));
-												_this.backup.hook.tip('enable');
-											/**
-											 * unkown
-											 */
-											}else{
-												_this.backup.hook.tip(_this.hook.status_tip('error',_this.config.lang.E00002 + _this.config.lang.E00001 + '002'));
-												_this.backup.hook.tip('enable');
-											}
-										},error : function(){
-											_this.backup.hook.tip(_this.hook.status_tip('error',_this.config.lang.E00002 + _this.config.lang.E00001 + '003'));
-											_this.backup.hook.tip('enable');
-										}
-									});
-								/**
-								 * complete
-								 */
-								}else{
-									_this.backup.hook.tip(_this.hook.status_tip('success',_this.config.lang.M00005));
-									_this.backup.hook.tip('enable');
-								}
-							}
-							/**
-							 * start loop() first
-							 */
-							loop();
-						/**
-						 * end success,found error
-						 */	
-						}else if(data && data.status === 'error'){
-							_this.backup.hook.tip(_this.hook.status_tip('error',data.des.content));
-							_this.backup.hook.tip('enable');
-						}else{
-							_this.backup.hook.tip(_this.hook.status_tip('error',_this.config.lang.E00002 + _this.config.lang.E00001 + '001'));
-							_this.backup.hook.tip('enable');
-						}
-					},error : function(){
-						_this.backup.hook.tip(_this.hook.status_tip('error',_this.config.lang.E00002 + _this.config.lang.E00001 + '001'));
-						_this.backup.hook.tip('enable');
+	function backup_done(data){
+		if(data && data.status === 'success'){
+			var posts = data.posts;
+			cache.imgs = [];
+			cache.img_index = 0;
+			for(var i in posts){
+				if(posts[i]['imgs']){
+					for(var j in posts[i]['imgs']){
+						cache.imgs.push({
+							url : posts[i]['imgs'][j],
+							post_id : posts[i]['id']
+						});
 					}
-				
-				});
-				
-			},
-
-			/**
-			 * tip
-			 * 
-			 * @param string content
-			 * @return n/a
-			 * @version 1.0.0
-			 * @example admin.backup.hook.tip('show')
-			 * @author KM (kmvan.com@gmail.com)
-			 * @copyright Copyright (c) 2011-2013 INN STUDIO. (http://www.inn-studio.com)
-			 **/
-			tip : function(content){
-				var _this = admin,
-					$tip = jQuery(_this.config.backup_tip_id),
-					$btn = jQuery(_this.config.backup_btn_id);
-				switch(content){
-					case 'show':
-						$tip.show();
-						$btn.attr('disabled','disabled');
-						break;
-					case 'hide':
-						$tip.hide();
-						$btn.removeAttr('disabled');
-						break;
-					case 'enable':
-						$btn.show();
-						$btn.removeAttr('disabled');
-						break;
-					case 'disabled':
-						$btn.hide();
-						$btn.attr('disabled','disabled');
-						break;
-					default:
-						$tip.html(content);
 				}
 			}
-		
-		}
-	},
-	/**
-	 * restore
-	 */
-	restore : {
-		
-		bind : function(){
-			var _this = admin,
-				ajax_data;
-			jQuery(_this.config.restore_btn_1_id).on('click',function(){
-				ajax_data = {
-					'type' : 'restore',
-					'restore_to' : 'space'
-				};
-				_this.restore.hook.send(ajax_data);
-				return false;
-			});
-			jQuery(_this.config.restore_btn_2_id).on('click',function(){
-				ajax_data = {
-					'type' : 'restore',
-					'restore_to' : 'server'
-				};
-				_this.restore.hook.send(ajax_data);
-				return false;
-			});
+			/** 
+			 * download start, come on~!!
+			 */
+			ajax_download();
 			
-		},
-		
-		hook : {
-			ajax_data : {},
-			
-			send : function(ajax_data){
-				var _this = admin;
-				jQuery.ajax({
-					url : admin.config.process_url,
-					data : ajax_data,
-					dataType : 'json',
-					beforeSend : function(){
-						_this.restore.hook.tip(_this.hook.status_tip('loading',_this.config.lang.M00010));
-						_this.restore.hook.tip('show');
-					},success : function(data){
-						if(data && data.status === 'success'){
-							_this.restore.hook.tip(_this.hook.status_tip('success',data.des.content));
-							_this.restore.hook.tip('enable');
-						}else if(data && data.status === 'error'){
-							_this.restore.hook.tip(_this.hook.status_tip('error',data.des.content));
-							_this.restore.hook.tip('enable');
-						}else{
-							_this.restore.hook.tip(_this.hook.status_tip('error',_this.config.lang.E00002));
-							_this.restore.hook.tip('enable');
-						}
-					},error : function(){
-							_this.restore.hook.tip(_this.hook.status_tip('error',_this.config.lang.E00002));
-							_this.restore.hook.tip('enable');
-					}
-				});
-			},
-			/**
-			 * tip
-			 * 
-			 * @param string content
-			 * @return n/a
-			 * @version 1.0.0
-			 * @example admin.backup.hook.tip('show')
-			 * @author KM (kmvan.com@gmail.com)
-			 * @copyright Copyright (c) 2011-2013 INN STUDIO. (http://www.inn-studio.com)
-			 **/
-			tip : function(content){
-				var _this = admin,
-					$tip = jQuery(_this.config.restore_tip_id),
-					$btns = jQuery(_this.config.restore_btns_area_id);
-				switch(content){
-					case 'show':
-						$tip.show();
-						$btns.hide();
-						break;
-					case 'hide':
-						$tip.hide();
-						$btns.show();
-						break;
-					case 'enable':
-						$btns.show();
-						break;
-					case 'disabled':
-						$btns.hide();
-						break;
-					default:
-						$tip.html(content);
-				}
-			}
-		
+		}else if(data && data.status === 'error'){
+			tip('error',data.msg);
+			cache.$backup_btns.show();
+		}else{
+			tip('error',that.config.lang.E00002);
+			cache.$backup_btns.show();
 		}
-	},
-	
-	
-	tab : {
-		
-		init : function(){
-			jQuery('.admin_tab').KandyTabs({
-				delay : 100,
-				done : function(){
-					jQuery('.admin_tab_loading').slideUp('fast');
-					jQuery('#plugin_options_frm').slideDown('fast');
-				}
-			});
-		}
-	
-	},
-	
-	hook : {
-		
-		/**
-		 * status_tip
-		 *
-		 * @param mixed
-		 * @return string
-		 * @version 1.1.0
-		 * @author KM@INN STUDIO
+	}
+	function ajax_download(){
+		var img = cache.imgs[cache.img_index],
+			imgs_len = cache.imgs.length,
+			next_img_index = cache.img_index + 1;
+		/** 
+		 * progress
 		 */
-		status_tip : function(){
-			var defaults = ['type','size','content','wrapper'],
-				types = ['loading','success','error','question','info','ban','warning'],
-				sizes = ['small','middle','large'],
-				wrappers = ['div','span'],
-				type = null,
-				size = null,
-				wrapper = null,
-				content = null,	
-				args = arguments;
-				switch(args.length){
-					case 0:
-						return false;
-					/** 
-					 * only content
-					 */
-					case 1:
-						content = args[0];
-						break;
-					/** 
-					 * only type & content
-					 */
-					case 2:
-						type = args[0];
-						content = args[1];
-						break;
-					/** 
-					 * other
-					 */
-					default:
-						for(var i in args){
-							eval(defaults[i] + ' = args[i];');
-						}
+		progress(cache.$backup_progress_bar,next_img_index,imgs_len);
+		/** 
+		 * all complete
+		 */
+		if(imgs_len < next_img_index){
+			tip('success',that.config.lang.M00005);
+			cache.$backup_btns.show();
+			return false;
+		}
+		if(cache.img_index === 0) tip('loading',that.config.lang.M00002 + (cache.img_index + 1) +'/' + imgs_len);
+		cache.img_index++;
+		$.ajax({
+			url : that.config.process_url,
+			data : {
+				post_id : img.post_id,
+				img_url : img.url,
+				type : 'download'
+			},
+			dataType : 'json'
+		}).done(function(data){
+			if(data && data.status === 'success'){
+				/** 
+				 * download next
+				 */
+				if(data.skip){
+					tip('loading',that.config.lang.M00006 + ' ' + that.config.lang.M00002 + next_img_index + '/' + imgs_len);
+				}else{
+					tip('loading',that.config.lang.M00002 + next_img_index + '/' + imgs_len);
 				}
-				wrapper = wrapper || wrappers[0];
-				type = type ||  types[0];
-				size = size ||  sizes[0];
+				ajax_download();
+			}else if(data && data.status === 'error'){
+				tip('error',data.msg + ' ' + that.config.lang.M00002 + next_img_index + '/' + imgs_len);
+				ajax_download();
+			}else{
+				tip('error',that.config.lang.E00002);
+				console.log(data);
+			}
+		}).error(function(data){
+			tip('error',that.config.lang.E00002 + '<br/>' + data.responseText);
+			cache.$backup_btns.show();
+			// ajax_download();
+		}).always(function(){
+		
+		});
+	}
+	function tip(t,s){
+		if(t === 'hide'){
+			cache.$backup_tip.hide();
+		}else{
+			cache.$backup_tip.html(status_tip(t,s)).show();
+		}
+	}
+}
 
-				var tpl = '<' + wrapper + ' class="tip-status tip-status-' + size + ' tip-status-' + type + '"><i class="icon ' + type + '"></i>' + content + '</' + wrapper + '>';
-				return tpl;
+function restore(){
+	this.init = function(){
+		cache.$server_to_space_btn = $('#sinapicv2-restore-server-to-host-btn');
+		cache.$space_to_server_btn = $('#sinapicv2-restore-host-to-server-btn');
+		cache.$restore_progress_bar = $('#sinapicv2-restore-progress-bar');
+		cache.$restore_tip = $('#sinapicv2-restore-tip');
+		cache.$restore_btns = $('#sinapicv2-restore-btns');
+		
+		server_to_space();
+		
+		space_to_server();
+	
+	}
+	
+	function server_to_space(){
+		cache.$server_to_space_btn.on('click',function(){
+			tip('loading',that.config.lang.M00010);
+			$.ajax({
+				url : that.config.process_url,
+				data : {
+					type : 'restore-sina-to-local'
+				},
+				dataType : 'json'
+			}).done(function(data){
+				done(data);
+			}).error(function(data){
+				tip('error',that.config.lang.E00002 + '<br/>' + data.responseText);
+			}).always(function(){
+				cache.$restore_btns.show();
+			});
+		});
+	}
+	function space_to_server(){
+		cache.$space_to_server_btn.on('click',function(){
+			tip('loading',that.config.lang.M00010);
+			$.ajax({
+				url : that.config.process_url,
+				data : {
+					type : 'restore-local-to-sina'
+				},
+				dataType : 'json'
+			}).done(function(data){
+				done(data);
+			}).error(function(data){
+				tip('error',that.config.lang.E00002 + '<br/>' + data.responseText);
+			}).always(function(){
+				cache.$restore_btns.show();
+			});
+		});
+	}
+	function done(data){
+		if(data && data.status){
+			tip(data.status,data.msg);
+		}else{
+			tip('error',that.config.E00002);
+		}
+	}
+	function tip(t,s){
+		if(t === 'hide'){
+			cache.$restore_tip.hide();
+			cache.$restore_btns.show();
+		}else{
+			cache.$restore_btns.hide();
+			cache.$restore_tip.html(status_tip(t,s)).show();
 		}
 	}
 	
+}
+
+
+
+function progress($bar,curr,total){
+	$bar.show();
+	if(curr == 0){
+		$bar.width('1');
+		return;
+	}else if(curr > total){
+		curr = total;
+	}
+	$bar.animate({
+		width :  (curr/total)*100 + '%'
+	},1000);
+}
+	
+function tab(){
+	var $tab = $('#backend-tab');
+	if(!$tab[0]) return;
+	
+	$tab.KandyTabs({
+		done : function(){
+			$tab.show();
+			$('.backend-tab-loading').hide();
+		}
+	});
+}
+
+/**
+ * status_tip
+ *
+ * @param mixed
+ * @return string
+ * @version 1.1.0
+ * @author KM@INN STUDIO
+ */
+function status_tip(){
+	var defaults = ['type','size','content','wrapper'],
+		types = ['loading','success','error','question','info','ban','warning'],
+		sizes = ['small','middle','large'],
+		wrappers = ['div','span'],
+		type = null,
+		icon = null,
+		size = null,
+		wrapper = null,
+		content = null,	
+		args = arguments;
+		switch(args.length){
+			case 0:
+				return false;
+			/** 
+			 * only content
+			 */
+			case 1:
+				content = args[0];
+				break;
+			/** 
+			 * only type & content
+			 */
+			case 2:
+				type = args[0];
+				content = args[1];
+				break;
+			/** 
+			 * other
+			 */
+			default:
+				for(var i in args){
+					eval(defaults[i] + ' = args[i];');
+				}
+		}
+		wrapper = wrapper || wrappers[0];
+		type = type ||  types[0];
+		size = size ||  sizes[0];
+	
+		switch(type){
+			case 'success':
+				icon = 'smiley';
+				break;
+			case 'error' :
+				icon = 'no';
+				break;
+			case 'info':
+			case 'warning':
+				icon = 'info';
+				break;
+			case 'question':
+			case 'help':
+				icon = 'editor-help';
+				break;
+			case 'ban':
+				icon = 'minus';
+				break;
+			case 'loading':
+			case 'spinner':
+				icon = 'update';
+				break;
+			default:
+				icon = type;
+		}
+
+		var tpl = '<' + wrapper + ' class="tip-status tip-status-' + size + ' tip-status-' + type + '"><span class="dashicons dashicons-' + icon + '"></span><span class="after-icon">' + content + '</span></' + wrapper + '>';
+		return tpl;
+}
 }

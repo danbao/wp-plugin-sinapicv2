@@ -6,7 +6,10 @@ class plugin_functions_sinapicv2{
 	 *
 	 * @param mixed
 	 * @return string
-	 * @version 1.1.0
+	 * @example status_tip('error','content');
+	 * @example status_tip('error','big','content');
+	 * @example status_tip('error','big','content','span');
+	 * @version 2.0.0
 	 * @author KM@INN STUDIO
 	 */
 	public static function status_tip(){
@@ -37,7 +40,34 @@ class plugin_functions_sinapicv2{
 		$size = $size ? $size : $sizes[0];
 		$wrapper = $wrapper ? $wrapper : $wrappers[0];
 
-		$tpl = '<' . $wrapper . ' class="tip-status tip-status-' . $size . ' tip-status-' . $type . '"><i class="icon ' . $type . '"></i>' . $content . '</' . $wrapper . '>';
+		switch($type){
+			case 'success':
+				$icon = 'smiley';
+				break;
+			case 'error' :
+				$icon = 'no';
+				break;
+			case 'info':
+			case 'warning':
+				$icon = 'info';
+				break;
+			case 'question':
+			case 'help':
+				$icon = 'editor-help';
+				break;
+			case 'ban':
+				$icon = 'minus';
+				break;
+			case 'loading':
+			case 'spinner':
+				$icon = 'update';				
+				break;
+			default:
+				$icon = $type;
+		}
+
+		
+		$tpl = '<' . $wrapper . ' class="tip-status tip-status-' . $size . ' tip-status-' . $type . '"><span class="dashicons dashicons-' . $icon . '"></span><span class="after-icon">' . $content . '</span></' . $wrapper . '>';
 		return $tpl;
 	}
 	/**
@@ -179,7 +209,7 @@ class plugin_functions_sinapicv2{
 	 * 
 	 * @params string $target
 	 * @return bool
-	 * @version 1.0.0
+	 * @version 1.0.1
 	 * @author KM@INN STUDIO
 	 * 
 	 */
@@ -189,8 +219,7 @@ class plugin_functions_sinapicv2{
 		if(file_exists($target)) return is_dir($target); 
 
 		if(@mkdir($target)){
-			$stat = stat(dirname($target)); 
-			chmod($target, 0777); 
+			@chmod($target, 0777); 
 			return true; 
 		}else if(is_dir(dirname($target))){
 			return false; 
